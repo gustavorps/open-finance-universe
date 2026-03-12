@@ -1,0 +1,68 @@
+[project]
+name = "open-finance-universe"
+version = "0.1.0"
+requires-python = ">=3.12"
+authors = [{ name = "Gustasvo RPS", email = "dev+open-finance@grps.io" }]
+dependencies = [
+]
+
+[project.optional-dependencies]
+model = [
+    "pydantic>=2.12.5",
+]
+
+africa = [
+  "open-finance-africa",
+]
+brazil = [
+  "open-finance-brazil",
+]
+canada = [
+  "open-finance-canada",
+]
+china = [
+  "open-finance-china",
+]
+europe = [
+  "open-finance-europe",
+]
+mexico = [
+  "open-finance-mexico",
+]
+russia = [
+  "open-finance-russia",
+]
+usa = [
+  "open-finance-usa",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[tool.uv.sources]
+open-finance-africa = { workspace = true }
+open-finance-brazil = { workspace = true }
+open-finance-canada = { workspace = true }
+open-finance-china = { workspace = true }
+open-finance-europe = { workspace = true }
+open-finance-india = { workspace = true }
+open-finance-mexico = { workspace = true }
+open-finance-russia = { workspace = true }
+open-finance-usa = { workspace = true }
+
+
+[tool.uv.workspace]
+members = [
+    "packages/*",
+]
+
+[build-system]
+requires = ["uv_build >= 0.10.7, <0.11.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "openfinance"
+module-root = "src"
+namespace = true
